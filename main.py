@@ -1,38 +1,4 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
+import uvicorn
 
-# from routes.Get_By_IP import router as Get_By_IP
-from routers.Get_By_City import router as Get_by_City
-from routers.Get_By_IP import router as Get_by_IP
-
-app = FastAPI()
-
-
-
-
-templates = Jinja2Templates(directory="templates")
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-
-@app.get("/", response_class= HTMLResponse)
-async def home(request: Request):
-
-    return templates.TemplateResponse("Homepage.html",{"request": request})
-
-
-@app.get("/pickWay/choice", response_class= HTMLResponse)
-async def home(request: Request):
-
-    return templates.TemplateResponse("pickWay/choice.html",{"request": request})
-
-@app.get("/Homepage", response_class= HTMLResponse)
-async def home(request: Request):
-
-    return templates.TemplateResponse("Homepage.html",{"request": request})
-
-
-app.include_router(Get_by_City)
-app.include_router(Get_by_IP)
-
+if __name__ == "__main__":
+  uvicorn.run("server.api:app", host="0.0.0.0", port=8000, reload=True)

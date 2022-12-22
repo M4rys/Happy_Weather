@@ -4,7 +4,7 @@ import os
 from scheama import ResponseData, Forecast
 
 class Repositories:
-
+    
     def CriaJsonWithAPIData(webpath):
         response_API = requests.get(webpath)
         new_data = response_API.text

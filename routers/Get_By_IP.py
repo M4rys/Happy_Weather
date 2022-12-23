@@ -8,10 +8,10 @@ templates = Jinja2Templates(directory="templates")
 
 
 
-@router.get("/Results/Results_Weather",  response_model= ResponseData, response_description="I found the Data ;)")
-def get_data_Ip( request: Request):
+@router.get("/Results/Results_Weather/{ip}",  response_model= ResponseData, response_description="I found the Data ;)")
+def get_data_Ip( request: Request, ip: str):
     
-    data = Repositories.Find_By_IP()
+    data = Repositories.Find_By_IP(ip)
     ThisDay, Forecasts1, Forecasts2 = Repositories.Next_Days(data["results"]["forecast"])
 
     return templates.TemplateResponse("Results/Results_Weather.html",{"request": request, "Temp": data["results"]["temp"],

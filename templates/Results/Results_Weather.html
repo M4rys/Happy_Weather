@@ -55,7 +55,7 @@
                                 <th>Velocidade do vento</th>
                                 <td>{{Wind_speedy}}</td>
                             
-                                <th>Humidade</th>
+                                <th>Umidade</th>
                                 <td>{{Humidity}}%</td>
     
                             </tr>
@@ -67,7 +67,31 @@
                 </div>
     
                 <div>
-                    <img class = "imageweather" id= "sun" src="../static/Imagens/sol.png">
+                    {% if ThisDay.description == "Tempo limpo" or ThisDay.description == "Sol com poucas nuvens" or
+                        ThisDay.description == "Ensolarado" or ThisDay.description == "Estrelado" or
+                        ThisDay.description == "Ensolarado com muitas nuvens" or ThisDay.description == "Ar quente" %}
+                        <img class="imageweather" id="sun" src="/static/Imagens/sol2.png">
+                    {%endif%}
+                    
+                    {% if ThisDay.description == "Chuva" or ThisDay.description == "Chuviscos" or
+                        ThisDay.description == "Alguns chuviscos" or ThisDay.description == "Chuvas esparsas" or
+                        ThisDay.description == "Chuviscos com neve"%}
+                        <img class="imageweather" id="sun" src="/static/Imagens/chuva.png">
+                    {%endif%}
+
+                    {% if ThisDay.description == "Tempo nublado" or ThisDay.description == "Neblina" or
+                        ThisDay.description == "Fumacento" or ThisDay.description == "Parc. nublado" %}
+                        <img class="imageweather" id="sun" src="/static/Imagens/nublado.png">
+                    {%endif%}
+
+                    {% if ThisDay.description == "Tempestades" or ThisDay.description == "Tempestade tropical" or
+                        ThisDay.description == "Tempestade forte" or ThisDay.description == "Tempestades severas" or
+                        ThisDay.description == "Tempestade com neve" or ThisDay.description == "Tempestades isoladas" or
+                        ThisDay.description == "Trovoadas dispersas" or ThisDay.description == "Trovoadas dispersas" or
+                        ThisDay.description == "Tempestades isoladas"%} 
+                        <img class="imageweather" id="sun" src="./static/Imagens/tempestade.png">
+                    {%endif%}
+
                 </div>
             </div>
             <div class="NextDays">

@@ -13,8 +13,8 @@ class Repositories:
         return new_data
 
 
-    def Find_By_IP(): # gets the information from the API base on the user IP 
-        path ="https://api.hgbrasil.com/weather?key=SUA-CHAVE&user_ip=remote"
+    def Find_By_IP(ip): # gets the information from the API base on the user IP 
+        path ="https://api.hgbrasil.com/weather?key=SUA-CHAVE&user_ip={}".format(ip)
         API_Data = Repositories.CriaJsonWithAPIData(path)
         return API_Data
         
@@ -66,5 +66,3 @@ class Repositories:
     # def login():
     #     pass
 
-
-Repositories.Find_By_IP()

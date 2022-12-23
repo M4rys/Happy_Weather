@@ -19,3 +19,6 @@ ujson==5.5.0
 urllib3==1.25.11
 watchfiles==0.18.1
 websockets==10.4
+geocoder==1.38.1
+google-auth==2.12.0
+google-auth-oauthlib==0.4.6

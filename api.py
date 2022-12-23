@@ -28,4 +28,3 @@ async def home(request: Request):
 
 app.include_router(Get_by_City)
 app.include_router(Get_by_IP)
-

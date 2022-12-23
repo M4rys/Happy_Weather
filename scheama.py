@@ -29,6 +29,8 @@
 
 from pydantic import BaseModel
 
+# Classes que instânciam os tipos de dados para as variáveis da base modelo
+
 class Forecast (BaseModel):
     date: str
     weekday: str
